@@ -51,3 +51,7 @@ TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 ROOT_URLCONF = 'urls'
 
 SITE_ROOT = '/'
+
+SITE_TITLE = 'Django non-rel blog engine on Google App Engine'
+
+MEDIA_URL = '/static/'

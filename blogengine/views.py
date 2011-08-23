@@ -7,7 +7,8 @@ from django.conf import settings
 
 common_template_vars = {
                         'MEDIA_URL' : settings.MEDIA_URL, 
-                        'SITE_ROOT' : settings.SITE_ROOT
+                        'SITE_ROOT' : settings.SITE_ROOT,
+                        'SITE_TITLE' : settings.SITE_TITLE,
                         }
 
 # list recent blog posts
@@ -82,6 +83,7 @@ def post_edit(request, slug):
             # # TODO - more validation..
             if len(form_errors) == 0:
                 post.save()
+                post.slug_for_form = post.slug
                 updated = True
 
             # if the request was made via AJAX - return 1 as a success code

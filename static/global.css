@@ -1,0 +1,104 @@
+body {
+    background-color:#fff;
+    font-family: arial, helvetica, sans-serif;
+    font-size:100%;
+    color:#000;
+}
+
+a {
+    text-decoration: none;
+}
+
+#main-wrapper {
+}
+
+#main {
+    padding:10px;
+}
+
+h1,h2,h3,h4,h5{
+    font-family: georgia, times, serif;
+    font-weight: normal;
+    color:#BB8115;
+}
+
+h1 {
+    font-size:2em;
+    margin-bottom:5px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom:5px;
+}
+
+h1 a, h2 a {
+    color:#BB8115;
+}
+
+.post {
+    margin-bottom:10px;
+}
+
+.post-content {
+    font-size:1em;
+    line-height:1.2em;
+    margin-bottom:10px;
+    border-bottom:1px solid #ccc;
+    padding-bottom:10px;
+}
+
+.post-content p {
+    margin-bottom: 10px;
+    line-height:1.2em;
+}
+
+.post .byline {
+    font-size: 0.8em;
+    font-style:italic;
+    color: #ccc;
+    font-family: georgia, times, serif;
+    display:block;
+    margin-bottom: 5px;
+}
+
+header {
+    display: block;
+    background-color:#000;
+    color: #fff;
+    padding:20px 10px;
+    font-size: 2em;
+    font-family: georgia, times, serif;
+}
+
+header a {
+    color: #fff;
+}
+
+/* admin styling */
+.admin-form {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.admin-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom:5px;
+}
+
+.admin-form .field {
+    margin-bottom:10px;
+}
+
+.admin-form .field textarea {
+    width:500px;
+    height:300px;
+    padding:5px;
+}
+
+.controls {
+    border: 1px solid #ccc;
+    padding:10px;
+    margin-bottom:10px;
+}

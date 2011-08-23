@@ -8,7 +8,12 @@
     </ul>
 </div>
 {% endif %}
-<form method="post" name="edit_snippet" action="{{SITE_ROOT}}post/edit/{{ post.slug_for_form }}">
+{% if updated %}
+<div class="messages">
+    <p>The post has been saved <a href="{{SITE_ROOT}}post/view/{{ post.slug }}">view post</a>
+</div>
+{% endif %}
+<form method="post" name="edit_snippet" class="admin-form" action="{{SITE_ROOT}}post/edit/{{ post.slug_for_form }}">
     {% csrf_token %}
     <div class="field">
         <label>Title</label>
@@ -23,7 +28,7 @@
         <input class="medium-text" type="text" name="post_slug" value="{{ post.slug }}" />
     </div>
     <div class="field">
-        <label>Text</label>
+        <label>Text (HTML)</label>
         <textarea name="post_body">{{ post.body|safe }}</textarea>
     </div>
     <div class="field">

@@ -3,7 +3,7 @@
 <div class="post">
     <h1>{{ post.title }}</h1>
     <span class="byline">Posted: {{ post.pub_date|date:"d/m/Y" }}</span>
-    <div class="post-body">
+    <div class="post-content">
         {{ post.body|safe}}
     </div>
 </div>

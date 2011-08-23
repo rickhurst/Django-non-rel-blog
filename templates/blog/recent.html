@@ -6,13 +6,16 @@
         <div class="post">
 			<h2><a href="/post/view/{{ item.slug }}/">{{ item.title }}</a></h2>
 			<span class="byline">Posted: {{ item.pub_date|date:"d/m/Y" }}</span>
+			<div class="post-content">
 			<p>{{ item.body|safe }}</p>
 			{% if perms.blogengine.change_post %}
 			<div class="controls">
-			    <a href="{{ SITE_ROOT }}post/edit/{{ item.slug }}">edit post</a>
+			    <a href="{{ SITE_ROOT }}post/edit/{{ item.slug }}">edit post</a> | 
 			    <a href="{{ SITE_ROOT }}post/delete/{{ item.slug }}">delete post</a>
 			</div>
 			{% endif %}
+			</div>
+
 		</div>
     {% endfor %}
 

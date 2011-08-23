@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>{{ SITE_TITLE }}</title>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}reset.css" type="text/css" />
+        <link rel="stylesheet" href="{{ MEDIA_URL }}global.css" type="text/css" /> 
     </head>
     <body>
-        {% block content %}{% endblock %}
+        <div id="main-wrapper">
+            <header><a href="{{ SITE_ROOT }}">{{ SITE_TITLE }}</a></header>
+            <div id="main">
+            {% block content %}{% endblock %}
+            </div>
+            <footer></footer>
+        </div>
     </body>
 </html>
