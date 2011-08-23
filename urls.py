@@ -17,8 +17,9 @@ urlpatterns = patterns('',
     ('^$', 'blogengine.views.posts_recent'),
     
     # blog - edit post 
-    (r'^post/edit/(?P<slug>[\w-]+)', 'blog.views.post_edit'),
+    (r'^post/edit/(?P<slug>[\w-]+)', 'blogengine.views.post_edit'),
     
     # blog - delete post 
-    (r'^post/delete/(?P<slug>[\w-]+)', 'blog.views.post_delete'),
+    (r'^post/delete/(?P<slug>[\w-]+)', 'blogengine.views.post_delete_confirm'),
+    (r'^post/delete-confirmed/(?P<slug>[\w-]+)', 'blogengine.views.post_delete'),
 )

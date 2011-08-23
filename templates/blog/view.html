@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="post">
+    <h1>{{ post.title }}</h1>
+    <span class="byline">Posted: {{ post.date|date:"d/m/Y" }}</span>
+    <div class="post-body">
+        {{ post.body|safe}}
+    </div>
+</div>
+{% endblock %}

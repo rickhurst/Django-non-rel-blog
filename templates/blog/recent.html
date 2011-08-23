@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 {% if recent_posts %}
-    <ul>
+    
     {% for item in recent_posts %}
-        <li>
-			<h2><a href="/post/{{ item.slug }}/">{{ item.title }}</a></h2>
+        <div class="post">
+			<h2><a href="/post/view/{{ item.slug }}/">{{ item.title }}</a></h2>
+			<span class="byline">Posted: {{ item.pub_date|date:"d/m/Y" }}</span>
 			<p>{{ item.body|safe }}</p>
 			{% if perms.blogengine.change_post %}
 			<div class="controls">
@@ -12,9 +13,12 @@
 			    <a href="{{ SITE_ROOT }}post/delete/{{ item.slug }}">delete post</a>
 			</div>
 			{% endif %}
-		</li>
+		</div>
     {% endfor %}
-    </ul>
+    <div class="controls">
+        <a href="{{ SITE_ROOT }}post/edit/NEW-POST">add new post</a>
+    </div>
+    
 {% else %}
     <p>No recent posts available.</p>
 {% endif %}

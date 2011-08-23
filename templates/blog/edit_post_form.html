@@ -1,0 +1,32 @@
+{% if form_errors %}
+<div class="messages">
+    <p>The following must be corrected:-</p>
+    <ul>
+    {% for item in form_errors %}
+       <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+<form method="post" name="edit_snippet" action="{{SITE_ROOT}}post/edit/{{ post.slug_for_form }}">
+    {% csrf_token %}
+    <div class="field">
+        <label>Title</label>
+        <input class="medium-text" type="text" name="post_title" value="{{ post.title }}" />
+    </div>
+    <div class="field">
+        <label>Publication Date (dd/mm/yyyy)</label>
+        <input class="medium-text" type="text" name="post_pub_date" value="{{ post.pub_date|date:"d/m/Y" }}" />
+    </div>
+    <div class="field">
+        <label>Slug</label>
+        <input class="medium-text" type="text" name="post_slug" value="{{ post.slug }}" />
+    </div>
+    <div class="field">
+        <label>Text</label>
+        <textarea name="post_body">{{ post.body|safe }}</textarea>
+    </div>
+    <div class="field">
+        <input type="submit" value="save post" />
+    </div>
+</form>
