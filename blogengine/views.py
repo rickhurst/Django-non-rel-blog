@@ -38,7 +38,6 @@ def post_edit(request, slug):
         # if the slug is 'NEW-POST', this is a new post
         if slug == 'NEW-POST':
             post = Post()
-            post.title = "(new post)"
             post.slug_for_form = "NEW-POST"
             post.pub_date = datetime.now()
         else:
@@ -62,11 +61,16 @@ def post_edit(request, slug):
             # match the value from the URI, it will need to be changed
             post.slug = request.POST['post_slug']
             
+            # TODO: check slug doesn't already exist
+            
             # create a slug from the post title if there isn't one provided
             if post.slug == '':
                 slug = post.title
                 slug = slug.replace(' ', '-')
-                # TODO: replace special characters etc.
+                slug = slug.replace('(', '')
+                slug = slug.replace(')', '')
+                slug = slug.lower()
+                # TODO: run through method to replace all but specified character set.
                 post.slug = slug 
 
 

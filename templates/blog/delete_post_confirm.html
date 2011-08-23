@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>Are you sure you want to delete the following post?:-</p>
-<p>&quot;{{ post.title }}&quot;</p>
-<p><a href="{{ SITE_ROOT }}post/delete-confirmed/{{ post.slug }}">yes</a> | <a href="{{ SITE_ROOT }}">cancel</a>
+<div class="messages">
+    <p>Are you sure you want to delete the following post?:-</p>
+    <p>&quot;{{ post.title }}&quot;</p>
+    <p><a href="{{ SITE_ROOT }}post/delete-confirmed/{{ post.slug }}">yes</a> | <a href="{{ SITE_ROOT }}">cancel</a></p>
+</div>
 {% endblock %}

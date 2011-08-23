@@ -5,6 +5,14 @@
     <span class="byline">Posted: {{ post.pub_date|date:"d/m/Y" }}</span>
     <div class="post-content">
         {{ post.body|safe}}
+        {% if perms.blogengine.change_post %}
+		<div class="controls">
+		    <a href="{{ SITE_ROOT }}post/edit/{{ post.slug }}">edit post</a> | 
+		    <a href="{{ SITE_ROOT }}post/delete/{{ post.slug }}">delete post</a>
+		</div>
+		{% endif %}
     </div>
+    <a href="{{ SITE_ROOT }}">&laquo;Back to recent posts</a>
+    
 </div>
 {% endblock %}

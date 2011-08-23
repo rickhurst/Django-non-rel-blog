@@ -23,12 +23,12 @@ h1,h2,h3,h4,h5{
 }
 
 h1 {
-    font-size:2em;
+    font-size:1.8em;
     margin-bottom:5px;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 1.8em;
     margin-bottom:5px;
 }
 
@@ -101,4 +101,14 @@ header a {
     border: 1px solid #ccc;
     padding:10px;
     margin-bottom:10px;
+}
+
+.messages {
+    border:1px solid red;
+    margin-bottom:10px;
+    padding: 10px;
+}
+
+.messages li {
+    font-style: italic;
 }
