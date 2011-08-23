@@ -22,4 +22,7 @@ urlpatterns = patterns('',
     # blog - delete post 
     (r'^post/delete/(?P<slug>[\w-]+)', 'blogengine.views.post_delete_confirm'),
     (r'^post/delete-confirmed/(?P<slug>[\w-]+)', 'blogengine.views.post_delete'),
+    
+    # blog - view post
+    (r'^post/view/(?P<slug>[\w-]+)', 'blogengine.views.post_view'),
 )

@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
 from blogengine.models import Post
 from django.template import Context, loader, RequestContext
@@ -136,6 +136,22 @@ def post_delete(request, slug):
         return render_to_response("blog/delete_post_deleted.html", template_vars, context_instance=RequestContext(request))
     else:
         return HttpResponse('user not authenticated, or does not have permission to edit the post');
+        
+# view post
+def post_view(request, slug):
+    try:
+        post = Post.objects.get(slug=slug)
+    except:       
+        post = False
+        
+    if post:
+        template_vars = {
+            'post': post
+        }
+        template_vars.update(common_template_vars)
+        return render_to_response("blog/view.html", template_vars, context_instance=RequestContext(request))
+    else:
+        raise Http404
     
 
 
