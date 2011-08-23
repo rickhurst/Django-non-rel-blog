@@ -15,11 +15,14 @@
 			{% endif %}
 		</div>
     {% endfor %}
-    <div class="controls">
-        <a href="{{ SITE_ROOT }}post/edit/NEW-POST">add new post</a>
-    </div>
+
     
 {% else %}
     <p>No recent posts available.</p>
+{% endif %}
+{% if perms.blogengine.change_post %}
+<div class="controls">
+    <a href="{{ SITE_ROOT }}post/edit/NEW-POST">add new post</a>
+</div>
 {% endif %}
 {% endblock %}

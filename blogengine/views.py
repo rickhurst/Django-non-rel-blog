@@ -152,7 +152,22 @@ def post_view(request, slug):
         return render_to_response("blog/view.html", template_vars, context_instance=RequestContext(request))
     else:
         raise Http404
-    
+
+# add blogadmin user to the db
+# there must be a better way of doing this?
+# after running this script, you will need to update
+# the user record in GAE admin so that the user is staff/ superuser
+# then change the password from within django admin
+def gae_bootstrap(request):
+    from django.contrib.auth.models import User
+    try:
+      u = User.objects.get(username__exact='blogadmin')
+      return HttpResponse('user exists');
+    except:
+      
+      user = User.objects.create_user('blogadmin','rick.hurst@gmail.com', 'changemequick')
+      return HttpResponse('added user');
+
 
 
     

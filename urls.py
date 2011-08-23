@@ -25,4 +25,7 @@ urlpatterns = patterns('',
     
     # blog - view post
     (r'^post/view/(?P<slug>[\w-]+)', 'blogengine.views.post_view'),
+    
+    # gae bootstrap initial user
+    (r'^gae-bootstrap/', 'blogengine.views.gae_bootstrap'),
 )
