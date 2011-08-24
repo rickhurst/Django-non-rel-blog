@@ -26,7 +26,7 @@ def posts_recent(request):
     return render_to_response("blog/recent.html", template_vars, context_instance=RequestContext(request))
 
 # display post edit form
-# handles postback of form content for updating for new and existing posts
+# handles postback of form content for updating of new and existing posts
 def post_edit(request, slug):
     if request.user.has_perm('change_post'):
         t = loader.get_template('blog/edit_post.html')
@@ -70,7 +70,7 @@ def post_edit(request, slug):
                 slug = slug.replace('(', '')
                 slug = slug.replace(')', '')
                 slug = slug.lower()
-                # TODO: run through method to replace all but specified character set.
+                # TODO: run this string through a method to replace all but specified character set.
                 post.slug = slug 
 
 
@@ -79,19 +79,19 @@ def post_edit(request, slug):
             try: 
                post.pub_date = datetime.strptime(date_string, '%d/%m/%Y')
             except:
-               form_errors.append('You must provide a valid date')
+               form_errors.append('You must provide a valid date in the format dd/mm/yyyy')
    
 
             post.body = request.POST['post_body']
-            # 
-            # # TODO - more validation..
+
+            # TODO - more validation..
             if len(form_errors) == 0:
                 post.save()
                 post.slug_for_form = post.slug
                 updated = True
 
             # if the request was made via AJAX - return 1 as a success code
-            # TODO: handle failures
+            # TODO: handle failures and pass form errors back as JSON
             if request.is_ajax():
                return HttpResponse('1')
 
@@ -163,7 +163,7 @@ def post_view(request, slug):
 # there must be a better way of doing this?
 # after running this script, you will need to update
 # the user record in GAE admin so that the user is staff/ superuser
-# then change the password from within django admin
+# and then change the password from within django admin
 def gae_bootstrap(request):
     from django.contrib.auth.models import User
     try:
